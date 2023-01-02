@@ -1,0 +1,40 @@
+server:
+  name: "Job Board API"
+  host: "localhost"
+  port: "8080"
+  url: "http://localhost"
+database:
+  drivers:
+    mysql: &mysql
+      driver: mysql
+      host: localhost
+      username: root
+      password: password
+      db_name: job-board
+      port: 3306
+    postgres: &postgres
+      driver: postgres
+      host: localhost
+      username: postgres
+      password: password
+      port: 5432
+      db_name: job-board
+  default: *mysql
+
+jwt:
+  secret: "key_aman_pake_banget"
+  expire: 3600
+
+redis:
+  instances:
+    redis: &redis
+      driver: redis
+      name: redis
+      host: localhost
+      port: 6379
+      db: 0
+      password: ""
+  default: *redis
+
+cache: *redis
+session: *redis

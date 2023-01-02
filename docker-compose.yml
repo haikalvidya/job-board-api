@@ -1,0 +1,39 @@
+version: '3.7'
+
+
+services:
+  api:
+    build: "."
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    restart: "always"
+    depends_on:
+      - mariadb
+      - redis
+    links:
+      - mariadb
+      - redis
+
+  redis:
+    image: redis:alpine
+    container_name: job-board-redis
+    ports:
+      - "6379:6379"
+    expose:
+      - "6379"
+    command: redis-server --save 20 1 --loglevel warning
+
+  mysql:
+    image: mariadb:latest
+    container_name: job-board-mariadb
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: job-board 
