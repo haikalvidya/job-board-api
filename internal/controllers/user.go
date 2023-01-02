@@ -28,7 +28,7 @@ func UserMe(c *fiber.Ctx) error {
 	}
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
 		"error":   false,
-		"message": "User Found",
+		"message": "Success Get User",
 		"data":    user,
 	})
 }

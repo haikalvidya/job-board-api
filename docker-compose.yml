@@ -10,10 +10,10 @@ services:
   #     - "8080"
   #   restart: "always"
   #   depends_on:
-  #     - mariadb
+  #     - mysql
   #     - redis
   #   links:
-  #     - mariadb
+  #     - mysql
   #     - redis
 
   redis:

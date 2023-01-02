@@ -3,7 +3,7 @@ package models
 import (
 	"errors"
 	"job-board-api/cmd"
-	"job-board-api/pkg"
+	pkg "job-board-api/pkg/crypto"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
