@@ -10,7 +10,7 @@ database:
       host: localhost
       username: root
       password: password
-      db_name: job-board
+      database: job-board
       port: 3306
     postgres: &postgres
       driver: postgres
@@ -18,7 +18,7 @@ database:
       username: postgres
       password: password
       port: 5432
-      db_name: job-board
+      database: job-board
   default: *mysql
 
 jwt:

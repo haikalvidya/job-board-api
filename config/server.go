@@ -7,7 +7,6 @@ import (
 	"os/signal"
 	"syscall"
 
-	"emperror.dev/errors"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -56,8 +55,6 @@ func CustomErrorHandler(c *fiber.Ctx, err error) error {
 	if e, ok := err.(*fiber.Error); ok {
 		code = e.Code
 	}
-	er := errors.WithStack(err)
-	fmt.Printf("%+v", er)
 	fmt.Printf("%+v", err)
 	return c.Status(code).JSON(err)
 }

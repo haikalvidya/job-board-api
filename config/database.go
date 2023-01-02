@@ -21,7 +21,7 @@ type DatabaseDriver struct {
 type DatabaseConfig struct {
 	*gorm.DB
 	Drivers        map[string]DatabaseDriver `yaml:"drivers"`
-	DatabaseDriver DatabaseDriver            `mapstructure:"database" yaml:"database" env:"database"`
+	DatabaseDriver DatabaseDriver            `mapstructure:"default" yaml:"default" env:"default"`
 }
 
 func (d *DatabaseConfig) SetUp() error {

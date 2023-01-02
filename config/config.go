@@ -1,6 +1,8 @@
 package config
 
-import "github.com/ilyakaznacheev/cleanenv"
+import (
+	"github.com/ilyakaznacheev/cleanenv"
+)
 
 type AppConfig struct {
 	Server     ServerConfig   `mapstructure:"server" yaml:"server" env:"server"`

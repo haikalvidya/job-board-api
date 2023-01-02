@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"job-board-api/cmd"
+	"job-board-api/internal/routers"
 	"job-board-api/migrations"
 	"log"
 )
@@ -15,7 +16,8 @@ func main() {
 	if *migrate {
 		migrations.Migrate()
 	} else {
-		// TODO add routes
-		log.Fatal(cmd.Http.Server.Serve())
+		routers.LoadRoutes(cmd.Http.Server.App)
+		log.Println("Server started on port", cmd.Http.Server.Port)
+		cmd.Http.Server.Serve()
 	}
 }
